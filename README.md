@@ -4,13 +4,15 @@
 2. Create new branch for working on feature. 
 3. Do work. 
 4. Test feature. 
-4. Commit / Push feature branch to origin. 
-5. Creat pull request. 
-6. (Notional) Team review. 
-7. Checkout development branch. 
-8. Merge feature branch into development. 
-9. Test development branch. 
-10. Commit / push development branch to origin. 
-11. Checkout master. 
-12. Merge development into master. 
+5. Commit / Push feature branch to origin. 
+6. Checkout development branch. 
+7. Merge feature branch into development. 
+8. Test development branch. 
+9. Commit / push development branch to origin. 
+10. Create pull request.
+11. (Notional - for now) team review. 
+12. Approve pull request / Merge development into master. **performed by code maintainer / repo owner ONLY**
 13. Commit / push master to origin. 
+
+
+*Feature branch may be deleted*
