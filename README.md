@@ -10,8 +10,12 @@
 8. Merge featureName to development **repo maintainer only**
 9. git checkout development 
 10. git origin pull development
+
 <br>
+
 -- End Process for Developer -- 
+
 <br>
+
 11. **repo maintainer only** Merge development into master
 
