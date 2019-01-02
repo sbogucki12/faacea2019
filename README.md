@@ -1,18 +1,21 @@
 # My Local Version Control
 
-1. Always checkout development branch before beginning work.
-2. Create new branch for working on feature. 
-3. Do work. 
-4. Test feature. 
-5. Commit / Push feature branch to origin. 
-6. Checkout development branch. 
-7. Merge feature branch into development. 
-8. Test development branch. 
-9. Commit / push development branch to origin. 
-10. Create pull request.
-11. (Notional - for now) team review. 
-12. Approve pull request / Merge development into master. **performed by code maintainer / repo owner ONLY**
-13. Commit / push master to origin. 
+1. Always checkout development branch
+2. git checkout -b featureName
+3. Do work
+4. git add . origin featureName
+5. git commit -m "comment"
+6. Create pull request.  Compare featureName to development branch
+7. Team review 
+8. Merge featureName to development **repo maintainer only**
+9. git checkout development 
+10. git origin pull development
 
+<br>
 
-*Feature branch may be deleted*
+-- End Process for Developer -- 
+
+<br>
+
+11. **repo maintainer only** Merge development into master
+
