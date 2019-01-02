@@ -9,6 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import Divider from '@material-ui/core/Divider';
 import MailIcon from '@material-ui/icons/Mail';
+import { extdrawerListUpper, extdrawerListLower } from '../ext/extDrawerListItems';
+import { intdrawerListUpper, intdrawerListLower } from '../int/intDrawerListItems';
 
 const drawerWidth = 240;
 
@@ -52,47 +54,92 @@ const styles = theme => ({
     },
 });
 
-function DrawerVDR(props) {    
-    const { classes } = props;
-    return(
-        <div className={classes.toolbar}>
-            <div className={classes.top}>
-                <Typography variant="h5" >
-                {`FAA CEA`}
-                </Typography>
-                <Typography variant="subtitle1" gutterBottom>
-                {`v0.0.1`}
-                </Typography>
+class DrawerVDR extends React.Component {     
+    constructor(props){
+        super(props);
+        this.state = {
+            external: true
+        };
+    };
+
+   
+    render(){
+        const { classes } = this.props;
+
+        const isExternalUpper = () => {
+            if(this.state.external){
+                return(
+                    <List>
+                    {extdrawerListUpper.map((text, index) => (
+                        <ListItem button key={text}>
+                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    ))}
+                </List>
+                )
+            } else {
+                return(
+                    <List>
+                    {intdrawerListUpper.map((text, index) => (
+                        <ListItem button key={text}>
+                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    ))}
+                </List>
+                )
+            }
+        }
+
+        const isExternalLower = () => {
+            if(this.state.external){
+                return(
+                    <List>
+                    {extdrawerListLower.map((text, index) => (
+                        <ListItem button key={text}>
+                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                        <ListItemText primary={text} />
+                    </ListItem>
+                    ))}
+                </List>
+                )
+            } else {
+                return(
+                    <List>
+                    {intdrawerListLower.map((text, index) => (
+                        <ListItem button key={text}>
+                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                        <ListItemText primary={text} />
+                    </ListItem>
+                    ))}
+                </List>
+                )
+            }
+        }
+        
+        return(
+            <div className={classes.toolbar}>
+                <div className={classes.top}>
+                    <Typography variant="h5" >
+                    {`FAA CEA`}
+                    </Typography>
+                    <Typography variant="subtitle1" gutterBottom>
+                    {`v0.0.1`}
+                    </Typography>
+                </div>
+                <Divider />
+                {isExternalUpper()}
+                <Divider />
+                {isExternalLower()}
             </div>
-            <Divider />
-            <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-                </ListItem>
-            ))}
-            </List>
-            <Divider />
-            <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-                </ListItem>
-            ))}
-            </List>
-        </div>
-    );   
-    
+        );
+    }
 }
 
 DrawerVDR.propTypes = {
     classes: PropTypes.object.isRequired,
-    // Injected by the documentation to work in an iframe.
-    // You won't need it on your project.
-    container: PropTypes.object,
     theme: PropTypes.object.isRequired,
-  };
+};
   
-  export default withStyles(styles, { withTheme: true })(DrawerVDR);
+export default withStyles(styles, { withTheme: true })(DrawerVDR);
