@@ -5,11 +5,13 @@ import { createStore, applyMiddleware } from 'redux';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
+import reduxThunk from 'redux-thunk';
 
 import App from './components/App';
 import reducers from './reducers'; 
 
-const store = createStore(reducers, {}, applyMiddleware());
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+
 const theme = createMuiTheme({
 	typography: {
 		useNextVariants: true,
