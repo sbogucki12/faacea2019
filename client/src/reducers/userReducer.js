@@ -1,9 +1,23 @@
-import { DETERMINE_USER } from '../actions/types';
+import { MAKE_EXTERNAL, MAKE_INTERNAL } from '../actions/types';
 
-export default function (state = null, action){
+const initialState = {
+    user: 'external'
+};
+
+export default function (state = initialState, action){
     switch (action.type) {
-        case DETERMINE_USER:
-            return action.payload || false; 
+        case MAKE_EXTERNAL:
+        return {
+            ...state,
+            user: action.payload
+        }
+
+        case MAKE_INTERNAL: 
+        return {
+            ...state, 
+            user: action.payload
+        }
+
         default:
             return state; 
     }
