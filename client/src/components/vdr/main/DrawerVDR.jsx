@@ -11,6 +11,8 @@ import Divider from '@material-ui/core/Divider';
 import MailIcon from '@material-ui/icons/Mail';
 import { extdrawerListUpper, extdrawerListLower } from '../ext/extDrawerListItems';
 import { intdrawerListUpper, intdrawerListLower } from '../int/intDrawerListItems';
+import { defdrawerListUpper, defdrawerListLower } from '../default/defDrawerListItems';
+import { connect } from 'react-redux';
 
 const drawerWidth = 240;
 
@@ -54,66 +56,90 @@ const styles = theme => ({
     },
 });
 
-class DrawerVDR extends React.Component {     
-    constructor(props){
-        super(props);
-        this.state = {
-            external: true
-        };
-    };
-
-   
+class DrawerVDR extends React.Component {  
     render(){
         const { classes } = this.props;
 
         const isExternalUpper = () => {
-            if(this.state.external){
-                return(
-                    <List>
-                    {extdrawerListUpper.map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-                )
+            if (this.props.user) {
+                if (this.props.user.user === "external") {
+                    return (
+                        <List>
+                            {extdrawerListUpper.map((text, index) => (
+                                <ListItem button key={text}>
+                                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                                    <ListItemText primary={text} />
+                                </ListItem>
+                            ))}
+                        </List>
+                    )
+                } else {
+                    return (
+                        <List>
+                            {intdrawerListUpper.map((text, index) => (
+                                <ListItem button key={text}>
+                                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                                    <ListItemText primary={text} />
+                                </ListItem>
+                            ))}
+                        </List>
+                    )
+                }
             } else {
-                return(
+                return (
                     <List>
-                    {intdrawerListUpper.map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
+                        {defdrawerListUpper.map((text, index) => (
+                            <ListItem button key={text}>
+                                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                                <ListItemText primary={text} />
+                            </ListItem>
+                        ))}
+                    </List>
                 )
             }
         }
 
         const isExternalLower = () => {
-            if(this.state.external){
-                return(
-                    <List>
-                    {extdrawerListLower.map((text, index) => (
-                        <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                    ))}
-                </List>
-                )
+            if (this.props.user) {
+                if (this.props.user.user === "external") {
+                    return (
+                        <List>
+                            {extdrawerListLower.map((text, index) => (
+                                <ListItem button key={text}>
+                                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                                    <ListItemText primary={text} />
+                                </ListItem>))}
+                        </List>)
+                } else if (this.props.user.user === "internal") {
+                    return (
+                        <List>
+                            {intdrawerListLower.map((text, index) => (
+                                <ListItem button key={text}>
+                                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                                    <ListItemText primary={text} />
+                                </ListItem>))}
+                        </List>)
+                }
+                else {
+                    return (
+                        <List>
+                            {defdrawerListLower.map((text, index) => (
+                                <ListItem button key={text}>
+                                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                                    <ListItemText primary={text} />
+                                </ListItem>))}
+                        </List>)
+                }
             } else {
-                return(
+                return (
                     <List>
-                    {intdrawerListLower.map((text, index) => (
-                        <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                    ))}
-                </List>
+                        {defdrawerListLower.map((text, index) => (
+                            <ListItem button key={text}>
+                                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                                <ListItemText primary={text} />
+                            </ListItem>))}
+                    </List>
+
                 )
             }
         }
@@ -122,7 +148,7 @@ class DrawerVDR extends React.Component {
             <div className={classes.toolbar}>
                 <div className={classes.top}>
                     <Typography variant="h5" >
-                    {`FAA CEA`}
+                    {`PROTO`}
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
                     {`v0.0.1`}
@@ -140,6 +166,14 @@ class DrawerVDR extends React.Component {
 DrawerVDR.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
+    user: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.string    
+    ])    
 };
+
+const mapStateToProps = state => ({
+    user: state.user
+})
   
-export default withStyles(styles, { withTheme: true })(DrawerVDR);
+export default connect(mapStateToProps)(withStyles(styles, { withTheme: true })(DrawerVDR));
