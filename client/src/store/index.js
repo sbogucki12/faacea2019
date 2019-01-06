@@ -3,7 +3,8 @@ import reducers from "../reducers/index";
 import reduxThunk from 'redux-thunk';
 
 const initialState = {
-    user: ""
+    user: "", 
+    caseType: ""
 }; 
 const middleware = [reduxThunk]; 
 

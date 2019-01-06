@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER, MAKE_EXTERNAL, MAKE_INTERNAL } from './types';
+import { FETCH_USER, MAKE_EXTERNAL, MAKE_INTERNAL, DETERMINE_CASETYPE } from './types';
 
 
 export const fetchUser = () => async dispatch => {
@@ -29,3 +29,13 @@ export function makeInternal() {
         });
     };
 };
+
+export function updateCaseType(caseType) {
+    return function(dispatch){
+        console.log("updateCaseType called");
+        dispatch({
+            type: DETERMINE_CASETYPE,
+            payload: caseType
+        })
+    }
+}

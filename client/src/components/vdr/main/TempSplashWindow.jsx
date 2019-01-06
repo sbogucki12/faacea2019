@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
+import IntMain from '../int/IntMain';
+import NewVdr from '../int/NewVdr';
 
 const styles = theme => ({
     root: {
@@ -20,19 +22,19 @@ class TempSplashWindow extends React.Component {
             if (this.props.user.user === "internal") {
                 return (
                     <React.Fragment>
-                        {`Internal User`}
+                        {`Internal View`}
                     </React.Fragment>
                 )
             } else if (this.props.user.user === "external") {
                 return (
                     <React.Fragment>
-                        {`External User`}
+                        <IntMain />
                     </React.Fragment>
                 )
             } else {
                 return (
                     <React.Fragment>
-                        {`User Dot User`}
+                        {`Error View`}
                     </React.Fragment>
                 )
             }
@@ -42,7 +44,7 @@ class TempSplashWindow extends React.Component {
         else {
             return (
                 <React.Fragment>
-                    {`Unknown User`}
+                    {`Default View`}
                 </React.Fragment>
             )
         }
@@ -52,13 +54,14 @@ class TempSplashWindow extends React.Component {
     render(){
         const { classes } = this.props;
         return(
-            <div className={classes.root}>
-                <Button onClick={this.props.makeExternal}>{`Toggle External User`}</Button>
-                <Button onClick={this.props.makeInternal}>{`Toggle Internal User`}</Button>
-                {console.log(this.props)}
+            <React.Fragment>
+                <div className={classes.root}>
+                    <Button onClick={this.props.makeExternal}>{`Toggle External User`}</Button>
+                    <Button onClick={this.props.makeInternal}>{`Toggle Internal User`}</Button>
+                </div>
                 {this.showContent()}
-                
-            </div>
+                <NewVdr />
+            </React.Fragment>
         )
     }
 }
@@ -70,6 +73,7 @@ TempSplashWindow.propTypes = {
   };
   
 const mapStateToProps = state => ({
+    ...state,
     user: state.user
 })
 
