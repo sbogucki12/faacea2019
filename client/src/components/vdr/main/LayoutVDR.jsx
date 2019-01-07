@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import DrawerVDR from './DrawerVDR';
 import TempSplashWindow from './TempSplashWindow';
+import CaseInfoDialog from '../../main/CaseInfoDialog';
 
 const drawerWidth = 240;
 
@@ -117,6 +118,7 @@ class LayoutVDR extends React.Component {
         </nav>
         <main className={classes.content}>
           <div className={classes.toolbar} />
+          <CaseInfoDialog />
           <TempSplashWindow />
         </main>
       </div>
