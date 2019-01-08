@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
-import IntMain from '../int/IntMain';
-import NewVdr from '../int/NewVdr';
+import ExtMain from '../ext/ExtMain';
 
 const styles = theme => ({
     root: {
@@ -28,7 +27,7 @@ class TempSplashWindow extends React.Component {
             } else if (this.props.user.user === "external") {
                 return (
                     <React.Fragment>
-                        <IntMain />
+                        <ExtMain />
                     </React.Fragment>
                 )
             } else {
@@ -60,7 +59,6 @@ class TempSplashWindow extends React.Component {
                     <Button onClick={this.props.makeInternal}>{`Toggle Internal User`}</Button>
                 </div>
                 {this.showContent()}
-                <NewVdr />
             </React.Fragment>
         )
     }

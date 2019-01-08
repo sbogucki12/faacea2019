@@ -26,7 +26,7 @@ const styles = theme => ({
   }
 });
 
-class NewVdr extends React.Component {
+class IntNewVdr extends React.Component {
   constructor(props){
     super(props); 
     this.state = {
@@ -78,7 +78,7 @@ class NewVdr extends React.Component {
   }
 }
 
-NewVdr.propTypes = {
+IntNewVdr.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
@@ -87,4 +87,4 @@ const mapStateToProps = state => ({
   caseType: state.caseType
 })
 
-export default connect(mapStateToProps, actions)(withStyles(styles)(NewVdr));
+export default connect(mapStateToProps, actions)(withStyles(styles)(IntNewVdr));

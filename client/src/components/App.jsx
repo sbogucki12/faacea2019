@@ -4,7 +4,7 @@ import LayoutVDR from "./vdr/main/LayoutVDR";
 import LoginVDR from './vdr/main/LoginVDR';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import NewVdr from './vdr/int/NewVdr';
+import IntNewVdr from './vdr/int/IntNewVdr';
 
 class App extends React.Component {
     componentDidMount(){
@@ -17,8 +17,8 @@ class App extends React.Component {
                 <BrowserRouter>
                     <div>
                         <Route exact path="/" component={LoginVDR} /> 
-                        <Route path="/case/vdr/main" component={LayoutVDR} />
-                        <Route exact path="/surveys/new" component={NewVdr} />
+                        <Route path="/vdr/main" component={LayoutVDR} />
+                        <Route exact path="/surveys/new" component={IntNewVdr} />
                     </div>
                 </BrowserRouter>
             </div>
