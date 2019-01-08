@@ -1,7 +1,7 @@
 import { MAKE_EXTERNAL, MAKE_INTERNAL } from '../actions/types';
 
 const initialState = {
-    user: 'external'
+
 };
 
 export default function (state = initialState, action){

@@ -149,6 +149,7 @@ class DrawerVDR extends React.Component {
                 <div className={classes.top}>
                     <Typography variant="h5" >
                     {`PROTO`}
+                    {`This is the case type: ${this.props.caseType.caseType}`}
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
                     {`v0.0.1`}
@@ -173,7 +174,8 @@ DrawerVDR.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    user: state.user
+    user: state.user,
+    caseType: state.caseType
 })
   
 export default connect(mapStateToProps)(withStyles(styles, { withTheme: true })(DrawerVDR));
