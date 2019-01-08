@@ -17,7 +17,8 @@ class App extends React.Component {
                 <BrowserRouter>
                     <div>
                         <Route exact path="/" component={LoginVDR} /> 
-                        <Route path="/vdr/main" component={LayoutVDR} />
+                        <Route path="/main" component={LayoutVDR} />                        
+                        <Route path="/vdr/main" component={LayoutVDR} />                        
                         <Route exact path="/surveys/new" component={IntNewVdr} />
                     </div>
                 </BrowserRouter>
