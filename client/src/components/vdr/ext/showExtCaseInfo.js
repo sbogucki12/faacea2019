@@ -2,7 +2,7 @@ import React from 'react';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
-import caseInfo from '../../main/caseInfo';
+import { caseInfo } from '../../main/CaseInfo';
 
 const showExtCaseInfo = () => {
     return(

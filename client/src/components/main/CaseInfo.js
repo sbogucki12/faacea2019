@@ -33,4 +33,6 @@ const caseInfo = [
     }    
 ]
 
-export default caseInfo; 
+module.exports = {
+    caseInfo: caseInfo
+};
