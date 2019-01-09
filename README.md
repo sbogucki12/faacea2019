@@ -1,4 +1,4 @@
-![App Layout Diagram](server/layout.jpg?raw=true "App Layout Diagram")
+![App Layout Diagram](https://i.imgur.com/pWYDEEm.jpg "App Layout Diagram")
 
 # My Local Version Control
 
