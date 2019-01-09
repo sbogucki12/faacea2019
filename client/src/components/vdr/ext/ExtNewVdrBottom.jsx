@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { extVdrItems } from './extVdrItems';
+import ExtVdrDescriptDialog from './ExtVdrDescriptDialog';
 
 const styles = theme => ({
     container: {
@@ -48,9 +49,12 @@ class ExtNewVdrBottom extends React.Component {
 
         )
         return (
-            <form className={classes.container} noValidate autoComplete="off">
-                {listItems}
-            </form>
+            <React.Fragment>
+                <form className={classes.container} noValidate autoComplete="off">
+                    {listItems}
+                </form>
+                <ExtVdrDescriptDialog />
+            </React.Fragment>
         );
     }
 }

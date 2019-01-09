@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
-import showExtOptions from '../vdr/ext/showExtCaseInfo';
+import showExtCaseInfo from '../vdr/ext/showExtCaseInfo';
 
 const styles = {
   appBar: {
@@ -80,7 +80,7 @@ class CaseInfoDialog extends React.Component {
                     </Toolbar>
                 </AppBar>
                 <List>
-                    {showExtOptions()}
+                    {showExtCaseInfo()}
                 </List>
             </Dialog>
         </div>
