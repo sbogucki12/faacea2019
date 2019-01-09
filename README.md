@@ -1,3 +1,5 @@
+![App Layout Diagram](server/layout.jpg?raw=true "App Layout Diagram")
+
 # My Local Version Control
 
 1. Always checkout development branch
@@ -18,4 +20,6 @@
 <br>
 
 11. **repo maintainer only** Merge development into master
+
+
 
