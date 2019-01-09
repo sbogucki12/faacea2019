@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
 import ExtMain from '../ext/ExtMain';
+import IntMain from '../int/IntMain';
 
 const styles = theme => ({
     root: {
@@ -21,7 +22,7 @@ class TempSplashWindow extends React.Component {
             if (this.props.user.user === "internal") {
                 return (
                     <React.Fragment>
-                        {`Internal View`}
+                        <IntMain />
                     </React.Fragment>
                 )
             } else if (this.props.user.user === "external") {
@@ -54,6 +55,7 @@ class TempSplashWindow extends React.Component {
         const { classes } = this.props;
         return(
             <React.Fragment>
+                <h2>{`This is VDR`}</h2>
                 <div className={classes.root}>
                     <Button onClick={this.props.makeExternal}>{`Toggle External User`}</Button>
                     <Button onClick={this.props.makeInternal}>{`Toggle Internal User`}</Button>

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import IntNewVdr from './vdr/int/IntNewVdr';
 import IntMain from './vdr/int/IntMain';
+import Main from './main/Main';
 
 class App extends React.Component {
     componentDidMount(){
@@ -18,6 +19,7 @@ class App extends React.Component {
                 <BrowserRouter>
                     <div>
                         <Route exact path="/" component={LoginVDR} /> 
+                        <Route exact path="/test/practice/main" component={Main} />
                         <Route path="/main" component={LayoutVDR} />                        
                         <Route path="/vdr/main" component={LayoutVDR} />                        
                         <Route exact path="/surveys/new" component={IntNewVdr} />
