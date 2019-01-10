@@ -1,10 +1,11 @@
 import React from 'react'; 
+import CaseInfoDialog from './CaseInfoDialog';
 
 function Toolbar(){
     return(
-        <div>
-            <h2>{`This is the Toolbar`}</h2>
-        </div>
+        <React.Fragment>
+            <CaseInfoDialog />
+        </React.Fragment>
     )
 };
 

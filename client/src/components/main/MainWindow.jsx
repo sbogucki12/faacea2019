@@ -17,37 +17,42 @@ class MainWindow extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            vdr: false
+            userType: ""
         };
     }
-
-    showContent = (props) => {
+    render() {
         const { classes } = this.props;
-        if(this.state.vdr){
-            return(
-                <React.Fragment>
-                    <TempSplashWindow />
-                </React.Fragment>
-            )
-        } else {
-            return (
-                <React.Fragment>
+        let mainContent; 
+        if(this.state.userType === "int"){
+            mainContent = 
+                <div>
                     <Paper className={classes.root} elevation={1}>
                         <Typography variant="h5" component="h3">
-                            {`This is the Main Window`}
+                            {`This is the Int Main Content`}
                         </Typography>
                     </Paper>
-                </React.Fragment>
-            )
-        }
-    }
+                </div>
+            } else if (this.state.userType === "ext") {
+                mainContent = 
+                    <div>
+                        <Paper className={classes.root} elevation={1}>
+                            <Typography variant="h5" component="h3">
+                                {`This is the Ext Main Content`}
+                            </Typography>
+                        </Paper>
+                    </div>
+            }   else if (this.state.userType !== "int" && this.state.userType !== "ext") {
+                    mainContent = 
+                        <div>
+                            <Paper className={classes.root} elevation={1}>
+                                <Typography variant="h5" component="h3">
+                                    {`This is the Error Main Content`}
+                            </Typography>
+                            </Paper>
+                     </div>
+            }
 
-    render() {
-        return (
-            <div>
-                {this.showContent()}
-            </div>
-        );
+        return mainContent        
     }
 }
 
