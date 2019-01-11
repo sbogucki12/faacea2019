@@ -1,4 +1,5 @@
 import React from 'react'; 
+import PropTypes from 'prop-types';
 import MainLayout from './MainLayout';
 import Toolbar from './Toolbar';
 import MainWindow from './MainWindow';
@@ -31,12 +32,13 @@ function Main(props) {
                 <br />
                 <MainDrawer />
                 <br />
-                
-                    
-                
             </MainLayout>
         </div>
     )
+};
+
+Main.propTypes = {
+    classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Main);

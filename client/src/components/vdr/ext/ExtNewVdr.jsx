@@ -37,7 +37,6 @@ class ExtNewVdr extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
@@ -46,7 +45,7 @@ class ExtNewVdr extends React.Component {
 
   onSubmit(e){
     e.preventDefault();
-
+  
     const newRecord = {
       caseType: this.state.caseType
     }
