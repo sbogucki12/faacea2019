@@ -3,27 +3,28 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import TempSplashWindow from '../vdr/main/TempSplashWindow';
+import ExtVdrMain from '../vdr/ext/ExtMain';
 
 const styles = theme => ({
   root: {
     ...theme.mixins.gutters(),
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
-  },
+  }
 });
 
 class MainWindow extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userType: ""
+            userType: "ext", 
+            page: "vdr"
         };
     }
     render() {
         const { classes } = this.props;
         let mainContent; 
-        if(this.state.userType === "int"){
+        if(this.state.userType === "int" && this.state.page === "main"){
             mainContent = 
                 <div>
                     <Paper className={classes.root} elevation={1}>
@@ -32,7 +33,7 @@ class MainWindow extends React.Component {
                         </Typography>
                     </Paper>
                 </div>
-            } else if (this.state.userType === "ext") {
+            } else if (this.state.userType === "ext" && this.state.page === "main") {
                 mainContent = 
                     <div>
                         <Paper className={classes.root} elevation={1}>
@@ -50,9 +51,16 @@ class MainWindow extends React.Component {
                             </Typography>
                             </Paper>
                      </div>
+            }   else if (this.state.userType === "ext" && this.state.page === "vdr") {
+                    mainContent = 
+                        <div>
+                            <Paper className={classes.root} elevation={1}>
+                                <ExtVdrMain />
+                            </Paper>
+                        </div>
             }
 
-        return mainContent        
+        return mainContent           
     }
 }
 
