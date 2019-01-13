@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import NewMessageLayout from './NewMessageLayout';
 import NewMessageBody from './NewMessageBody';
 import NewMessageFooter from './NewMessageFooter';
 import NewMessageHeader from './NewMessageHeader';
+import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
   root: {
@@ -16,21 +15,28 @@ const styles = theme => ({
   },
 });
 
-function NewMessageMain(props) {
-  const { classes } = props;
+class NewMessageMain extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {};
+  }
 
-  return (
-    <div>
-      <NewMessageLayout>
-        <NewMessageHeader />
-        <br />
-        <NewMessageBody />
-        <br />
-        <NewMessageFooter />
-        <br />
-      </NewMessageLayout>
-    </div>
-  );
+  render(){
+    const { classes } = this.props;
+
+    return (
+      <div className={classes.root}>
+        <NewMessageLayout>
+          <Paper elevation={6}>
+          <NewMessageHeader /> 
+          <NewMessageBody />
+          <NewMessageFooter />
+          <br />
+          </Paper>
+        </NewMessageLayout>
+      </div>
+    );
+  }
 }
 
 NewMessageMain.propTypes = {

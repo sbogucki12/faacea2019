@@ -12,84 +12,77 @@ import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import showExtCaseInfo from '../vdr/ext/showExtCaseInfo';
 
-const styles = {
-  appBar: {
-    position: 'relative',
-  },
-  flex: {
-    flex: 1,
-  },
-};
+const styles = theme => ({
+	appBar: {
+		position: 'relative',
+	},
+	flex: {
+		flex: 1,
+	},
+});
 
 function Transition(props) {
-  return <Slide direction="up" {...props} />;
+	return <Slide direction="up" {...props} />;
 }
 
 class CaseInfoDialog extends React.Component {
-    state = {
-        open: false,
-    };
+	state = {
+		open: false,
+	};
 
-    // listItems = () => {
-    //     return(
-    //         caseInfo.map((listItem) => 
-    //         <React.Fragment>
-    //             <ListItem >
-    //                 <ListItemText key={listItem.id} primary={listItem.label}>
-    //                     {listItem.label}
-    //                 </ListItemText>
-    //             </ListItem>
-    //             <Divider />  
-    //         </React.Fragment>
-    //     ));
-    // }
+	// listItems = () => {
+	//     return(
+	//         caseInfo.map((listItem) =>
+	//         <React.Fragment>
+	//             <ListItem >
+	//                 <ListItemText key={listItem.id} primary={listItem.label}>
+	//                     {listItem.label}
+	//                 </ListItemText>
+	//             </ListItem>
+	//             <Divider />
+	//         </React.Fragment>
+	//     ));
+	// }
 
-    handleClickOpen = () => {
-        this.setState({ open: true });
-    };
+	handleClickOpen = () => {
+		this.setState({ open: true });
+	};
 
-    handleClose = () => {
-        this.setState({ open: false });
-    };
+	handleClose = () => {
+		this.setState({ open: false });
+	};
 
-    render() {
-        const { classes } = this.props;
+	render() {
+		const { classes } = this.props;
 
-        return (
-            <div>
-            <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-                {`Show Disclosure Information`}
-            </Button>
-            <Dialog
-                fullScreen
-                open={this.state.open}
-                onClose={this.handleClose}
-                TransitionComponent={Transition}
-            >
-                <AppBar className={classes.appBar}>
-                    <Toolbar>
-                        <IconButton color="inherit" onClick={this.handleClose} aria-label="Close">
-                            <CloseIcon />
-                        </IconButton>
-                        <Typography variant="h6" color="inherit" className={classes.flex}>
-                            {`Case Number`}
-                        </Typography>
-                        <Button color="inherit" onClick={this.handleClose}>
-                            {`Close`}
-                        </Button>
-                    </Toolbar>
-                </AppBar>
-                <List>
-                    {showExtCaseInfo()}
-                </List>
-            </Dialog>
-        </div>
-        );
-    }
+		return (
+			<div>
+				<Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
+					{`Show Disclosure Information`}
+				</Button>
+				<Dialog fullScreen open={this.state.open} onClose={this.handleClose} TransitionComponent={Transition}>
+					<AppBar className={classes.appBar}>
+						<Toolbar>
+							<IconButton color="inherit" onClick={this.handleClose} aria-label="Close">
+								<CloseIcon />
+							</IconButton>
+							<Typography variant="h6" color="inherit" className={classes.flex}>
+								{`Case Number`}
+							</Typography>
+							<Button color="inherit" onClick={this.handleClose}>
+								{`Close`}
+							</Button>
+						</Toolbar>
+					</AppBar>
+					<List>{showExtCaseInfo()}</List>
+				</Dialog>
+			</div>
+		);
+	}
 }
 
 CaseInfoDialog.propTypes = {
-  classes: PropTypes.object.isRequired,
+	classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(CaseInfoDialog);

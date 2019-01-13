@@ -14,6 +14,11 @@ const styles = theme => ({
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
   },
+  paperRoot: {
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2,
+  },
   button: {
     margin: theme.spacing.unit,
     [theme.breakpoints.up('md')]:{
@@ -32,7 +37,8 @@ function NewMessageHeader(props) {
 
   return (
     <div className={classes.root}>
-        <Grid container spacing={8}>
+        <Paper className={classes.paperRoot} elevation={2}>
+        <Grid container spacing={8}>            
             <Grid item md={2}>
                 <Button variant="contained" className={classes.button}>
                     {`To:`}
@@ -42,7 +48,26 @@ function NewMessageHeader(props) {
                 <TextField variant="outlined" className={classes.textField} />
             </Grid>
             <Grid item md={1} />
+            <Grid item md={2}>
+                <Button variant="outlined" className={classes.button}>
+                    {`CC:`}
+                </Button>
+            </Grid>
+            <Grid item md={9}>
+                <TextField variant="outlined" className={classes.textField} />
+            </Grid>
+            <Grid item md={1} />
+            <Grid item md={2}>
+                <Button variant="outlined" className={classes.button}>
+                    {`BCC:`}
+                </Button>
+            </Grid>
+            <Grid item md={9}>
+                <TextField variant="outlined" className={classes.textField} />
+            </Grid>
+            <Grid item md={1} />
         </Grid>
+        </Paper>
     </div>
   );
 }

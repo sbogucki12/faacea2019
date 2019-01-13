@@ -9,7 +9,6 @@ const NewMessageLayout = (props) => {
 
     return (
         <React.Fragment>
-            <h2>{`This is the new message layout component`}</h2>
             {props.children}
         </React.Fragment>
     );
