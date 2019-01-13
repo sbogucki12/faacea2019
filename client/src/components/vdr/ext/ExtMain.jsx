@@ -26,7 +26,7 @@ class ExtMain extends React.Component {
   onNewVdr = () => {
     this.setState((prevState) => ({
       newVdr: !prevState.newVdr
-    }))
+    }))    
   };
 
   onNewMessage = () => {
@@ -51,7 +51,7 @@ class ExtMain extends React.Component {
     } else {
       return (
         <div>
-          <ExtNewVdr />
+          <ExtNewVdr />          
         </div>
       )
     }
