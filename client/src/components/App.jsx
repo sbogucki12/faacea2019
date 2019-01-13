@@ -8,6 +8,7 @@ import IntNewVdr from './vdr/int/IntNewVdr';
 import IntMain from './vdr/int/IntMain';
 import Main from './main/Main';
 import NewMessageMain from './main/messaging/NewMessageMain';
+import InboxMain from './main/messaging/InboxMain';
 
 class App extends React.Component {
     componentDidMount(){
@@ -26,6 +27,7 @@ class App extends React.Component {
                         <Route exact path="/surveys/new" component={IntNewVdr} />
                         <Route exact path="/practice/test" component={IntMain} />
                         <Route exact path="/test/newmessage" component={NewMessageMain} />
+                        <Route exact path="/test/inbox" component = {InboxMain} />
                     </div>
                 </BrowserRouter>
             </div>
