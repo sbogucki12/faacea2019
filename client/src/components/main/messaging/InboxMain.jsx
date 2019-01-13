@@ -6,37 +6,37 @@ import InboxLayout from './InboxLayout';
 import InboxList from './InboxList';
 
 const styles = theme => ({
-  root: {
-    ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
-  },
+	root: {
+		...theme.mixins.gutters(),
+		paddingTop: theme.spacing.unit * 2,
+		paddingBottom: theme.spacing.unit * 2,
+	}
 });
 
 class InboxMain extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {};
-  }
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}
 
-  render(){
-    const { classes } = this.props;
+	render() {
+		const { classes } = this.props;
 
-    return (
-      <div className={classes.root}>
-        <InboxLayout>
-          <Paper elevation={6}>
-          <InboxList />           
-          <br />
-          </Paper>
-        </InboxLayout>
-      </div>
-    );
-  }
+		return (
+			<div className={classes.root}>
+				<InboxLayout>
+					<Paper elevation={6}>
+						<InboxList />
+						<br />
+					</Paper>
+				</InboxLayout>
+			</div>
+		);
+	}
 }
 
 InboxMain.propTypes = {
-  classes: PropTypes.object.isRequired,
+	classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(InboxMain);

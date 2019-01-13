@@ -9,6 +9,8 @@ import Divider from '@material-ui/core/Divider';
 import UnreadIcon from '@material-ui/icons/MarkunreadTwoTone';
 import messageDummyData from '../../../dummyData/messageDummyData';
 import Paper from '@material-ui/core/Paper';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 const styles = theme => ({
 	root: {
@@ -24,6 +26,14 @@ const styles = theme => ({
 	},
 	icon: {
 		margin: theme.spacing.unit,
+	},
+	fab: {
+		margin: 0,
+		top: 'auto',
+		right: 20,
+		bottom: 20,
+		left: 'auto',
+		position: 'fixed'
 	},
 });
 
@@ -51,6 +61,9 @@ function InboxList(props) {
 							</React.Fragment>
 						);
 					})}
+					<Fab color="primary" aria-label="Add" className={classes.fab}>
+						<AddIcon />
+					</Fab>
 				</List>
 			</Paper>
 		</div>
