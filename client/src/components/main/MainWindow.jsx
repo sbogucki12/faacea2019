@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ExtVdrMain from '../vdr/ext/ExtMain';
+import NewMessageMain from './messaging/NewMessageMain';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   root: {
@@ -18,9 +20,16 @@ class MainWindow extends React.Component {
         super(props);
         this.state = {
             userType: "ext", 
-            page: "vdr"
+            page: "main"
         };
     }
+
+    onNewMessage = () => {
+        this.setState({
+            page: "newMessage"
+        })
+    };
+
     render() {
         const { classes } = this.props;
         let mainContent; 
@@ -58,9 +67,24 @@ class MainWindow extends React.Component {
                                 <ExtVdrMain />
                             </Paper>
                         </div>
+            }   else if (this.state.page === "newMessage") {
+                    mainContent = 
+                        <div>
+                            <Paper className={classes.root} elevation={1}>
+                                <NewMessageMain />
+                            </Paper>
+                        </div> 
             }
 
-        return mainContent           
+        return (
+            <div>
+                <Button onClick={this.onNewMessage}>
+                    {`Create New Message`}
+                </Button>
+                {mainContent}
+            </div>
+            
+            )           
     }
 }
 

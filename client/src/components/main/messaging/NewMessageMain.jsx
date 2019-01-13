@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import NewMessageLayout from './NewMessageLayout';
+import NewMessageBody from './NewMessageBody';
+import NewMessageFooter from './NewMessageFooter';
+import NewMessageHeader from './NewMessageHeader';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   root: {
@@ -12,21 +15,28 @@ const styles = theme => ({
   },
 });
 
-function NewMessageMain(props) {
-  const { classes } = props;
+class NewMessageMain extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {};
+  }
 
-  return (
-    <div>
-      <Paper className={classes.root} elevation={1}>
-        <Typography variant="h5" component="h3">
-          This is a sheet of paper.
-        </Typography>
-        <Typography component="p">
-          Paper can be used to build surface or other elements for your application.
-        </Typography>
-      </Paper>
-    </div>
-  );
+  render(){
+    const { classes } = this.props;
+
+    return (
+      <div className={classes.root}>
+        <NewMessageLayout>
+          <Paper elevation={6}>
+          <NewMessageHeader /> 
+          <NewMessageBody />
+          <NewMessageFooter />
+          <br />
+          </Paper>
+        </NewMessageLayout>
+      </div>
+    );
+  }
 }
 
 NewMessageMain.propTypes = {

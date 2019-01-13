@@ -92,7 +92,7 @@ class LoginVDR extends React.Component {
               color="secondary"
               className={classes.submit}
               component={Link}
-              to="/main"
+              to="/test/practice/main"
             >
               Continue as Guest
           </Button>
