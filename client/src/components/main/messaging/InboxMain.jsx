@@ -26,7 +26,7 @@ class InboxMain extends React.Component {
 			<div className={classes.root}>
 				<InboxLayout>
 					<Paper elevation={6}>
-						<InboxList />
+						<InboxList onNewMessage={this.props.onNewMessage} />
 						<br />
 					</Paper>
 				</InboxLayout>

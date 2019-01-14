@@ -21,13 +21,19 @@ class MainWindow extends React.Component {
 		super(props);
 		this.state = {
 			userType: 'ext',
-			page: 'inbox',
+			page: 'main',
 		};
 	}
 
 	onNewMessage = () => {
 		this.setState({
 			page: 'newMessage',
+		});
+	};
+
+	onInbox = () => {
+		this.setState({
+			page: 'inbox',
 		});
 	};
 
@@ -84,7 +90,7 @@ class MainWindow extends React.Component {
 			mainContent = (
 				<div>
 					<Paper className={classes.root} elevation={1}>
-						<InboxMain />
+						<InboxMain onNewMessage={this.onNewMessage} />
 					</Paper>
 				</div>
 			);
@@ -92,7 +98,7 @@ class MainWindow extends React.Component {
 
 		return (
 			<div>
-				<Button onClick={this.onNewMessage}>{`Create New Message`}</Button>
+				<Button onClick={this.onInbox}>{`Go To Inbox`}</Button>
 				{mainContent}
 			</div>
 		);

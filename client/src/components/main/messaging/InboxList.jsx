@@ -61,7 +61,7 @@ function InboxList(props) {
 							</React.Fragment>
 						);
 					})}
-					<Fab color="primary" aria-label="Add" className={classes.fab}>
+					<Fab color="primary" aria-label="Add" className={classes.fab} onClick={props.onNewMessage} >
 						<AddIcon />
 					</Fab>
 				</List>

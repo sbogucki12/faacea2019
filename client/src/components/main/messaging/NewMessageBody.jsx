@@ -24,7 +24,21 @@ function NewMessageBody(props) {
       <Paper className={classes.root} elevation={2}>
       <TextField
           className={classes.textField}
-          id="filled-full-width"
+          id="subject"
+          label="Subject"
+          style={{ margin: 8 }}
+          placeholder="Subject"
+          // helperText="Enter Message Here"
+          fullWidth
+          margin="normal"
+          variant="filled"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+      <TextField
+          className={classes.textField}
+          id="body"
           label="Body"
           style={{ margin: 8 }}
           placeholder="Enter Message Here"
