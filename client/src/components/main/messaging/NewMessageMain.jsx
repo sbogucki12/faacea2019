@@ -25,9 +25,9 @@ class NewMessageMain extends React.Component {
 			bcc: '',
 			date: 'Jan. 13...',
 			time: '06:30 p.m.',
-			email: '',
+			email: 'devbogoodski@me.com',
 			subject: '',
-			body: '',
+			body: ''			
 		};
 	}
 
@@ -41,20 +41,9 @@ class NewMessageMain extends React.Component {
 		  });
 	}
 	onHandleSubmit = () => {
-		this.setState({
-			id: this.props.id,
-			to: this.props.to,
-			cc: this.props.cc,
-			bcc: this.props.bcc,
-			date: this.props.date,
-			time: this.props.time,
-			email: this.props.email,
-			subject: this.props.subject,
-			body: this.props.body,
-		});
-
 		const url = 'http://localhost:5000/api/sendmessage';
 		const data = this.state;
+		console.log(data);
 
 		fetch(url, {
 			method: 'POST', // or 'PUT'
@@ -76,7 +65,7 @@ class NewMessageMain extends React.Component {
 				<NewMessageLayout>
 					<Paper elevation={6}>
 						<NewMessageHeader onHandleChange={this.onHandleChange} />
-						<NewMessageBody subject={this.state.subject} body={this.state.body} onHandleChange={this.onHandleChange} />
+						<NewMessageBody onHandleChange={this.onHandleChange} />
 						<NewMessageFooter onHandleSubmit={this.onHandleSubmit} />
 						<br />
 					</Paper>

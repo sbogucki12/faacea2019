@@ -49,14 +49,16 @@ class InboxList extends React.Component {
 	}
 
 	componentWillMount() {
-		fetch('http://localhost:5000/api/getmail').then(res => {
-			return res.json().then(messageData => {
+		fetch('http://localhost:5000/api/getmail')
+			.then(response => response.json())
+			.then(data => {
+				const reversedData = data.reverse();
 				this.setState({
-					messageData: messageData,
+					messageData: reversedData
 				});
-			});
-		});
-	}
+			})
+		};
+	
 	render() {
 		const { classes } = this.props;
 		return (

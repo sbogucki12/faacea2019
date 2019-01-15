@@ -29,6 +29,7 @@ function NewMessageBody(props) {
           label="Subject"
           style={{ margin: 8 }}
           placeholder="Subject"
+          name="subject"
           // helperText="Enter Message Here"
           fullWidth
           margin="normal"
@@ -36,13 +37,14 @@ function NewMessageBody(props) {
           InputLabelProps={{
             shrink: true,
           }}
-          value={props.subject}
+          // value={props.subject}
           onChange={props.onHandleChange}
         />
       <TextField
           className={classes.textField}
           id="body"
           label="Body"
+          name="body"
           style={{ margin: 8 }}
           placeholder="Enter Message Here"
           // helperText="Enter Message Here"
@@ -54,6 +56,7 @@ function NewMessageBody(props) {
           InputLabelProps={{
             shrink: true,
           }}
+          onChange={props.onHandleChange}
         />
       </Paper>
     </div>

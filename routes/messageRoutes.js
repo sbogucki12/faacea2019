@@ -1,10 +1,7 @@
 module.exports = app => {
     const bodyParser = require('body-parser');
-    const messageData = require('../dummyData/messageDummyData');
     let userMessages;
-
-    // console.log(messageData);
-
+    
     if (process.env.NODE_ENV != 'production') {
         app.use((req, res, next) => {
             res.header("Access-Control-Allow-Origin", "*");
@@ -30,21 +27,20 @@ module.exports = app => {
             message.body
         ];
 
+        let messageData = require('../dummyData/messageDummyData');
+
         messageData.forEach(message => {
             userMessages.push(message)
         });
 
+        messageData = messageData.push(message.body);
 
-        // lastMessage = messageData[messageData.length - 1];
-        // lastMessageId = parseInt(lastMessage.id, 10);
-        // message.id = lastMessageId + 1;
-        // messageData.push(message);
-        // console.log(messageData[message.id])
-        // console.log("function called")
         res.send(userMessages);
     })
 
     app.get('/api/getmail', (req, res) => {
-        res.send(userMessages);
+
+        const messageData = require('../dummyData/messageDummyData');
+        res.send(messageData);
     })
 }
