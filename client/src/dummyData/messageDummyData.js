@@ -1,10 +1,14 @@
 const messageDummyData = [
     {
-        id: 1, 
+        id: 1,
+        to: "jane@corporate.net",
+        cc: "",
+        bcc: "", 
         date: "Jan. 11...", 
         time: "07:41 p.m.",
         email: "email@email.com",
-        subject: "Please complete report..."
+        subject: "Please complete report...",
+        body: ""
     },
     {
         id: 2, 

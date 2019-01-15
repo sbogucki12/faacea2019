@@ -21,6 +21,7 @@ const styles = theme => ({
 function NewMessageFooter(props) {
 	const { classes } = props;
 
+
 	return (
 		<div className={classes.root}>
 			<Paper className={classes.root} elevation={2}>
@@ -37,9 +38,11 @@ function NewMessageFooter(props) {
 						</Button>
 					</Grid>
 					<Grid item xs={4} md={2} lg={1}>
-						<Button variant="contained" color="primary" className={classes.button}>
+						<form type="submit" onSubmit={props.onHandleSubmit}>
+						<Button variant="contained" color="primary" type="submit" className={classes.button}>
 							{`Send`}
 						</Button>
+						</form>
 					</Grid>
 				</Grid>
 			</Paper>
