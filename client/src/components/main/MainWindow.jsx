@@ -21,7 +21,7 @@ class MainWindow extends React.Component {
 		super(props);
 		this.state = {
 			userType: 'ext',
-			page: 'main',
+			page: 'inbox',
 		};
 	}
 

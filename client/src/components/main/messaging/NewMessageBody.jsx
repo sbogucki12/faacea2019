@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
 
 const styles = theme => ({
   root: {
@@ -35,6 +36,8 @@ function NewMessageBody(props) {
           InputLabelProps={{
             shrink: true,
           }}
+          value={props.subject}
+          onChange={props.onHandleChange}
         />
       <TextField
           className={classes.textField}
