@@ -19,6 +19,9 @@ class InboxMain extends React.Component {
 		this.state = {};
 	}
 
+
+	
+
 	render() {
 		const { classes } = this.props;
 
@@ -29,7 +32,7 @@ class InboxMain extends React.Component {
 						<InboxList onNewMessage={this.props.onNewMessage} />
 						<br />
 					</Paper>
-				</InboxLayout>
+				</InboxLayout>				
 			</div>
 		);
 	}

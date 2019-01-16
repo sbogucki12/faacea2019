@@ -10,6 +10,8 @@ import UnreadIcon from '@material-ui/icons/MarkunreadTwoTone';
 import Paper from '@material-ui/core/Paper';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
+import Dialog from '@material-ui/core/Dialog';
+import MessageMain from './message/MessageMain';
 
 const styles = theme => ({
 	root: {
@@ -45,28 +47,39 @@ class InboxList extends React.Component {
 		super(props);
 		this.state = {
 			messageData: [],
+			open: false,
 		};
 	}
 
 	componentWillMount() {
-		let url; 
+		let url;
 		const env = process.env.NODE_ENV;
-		if(env === 'development'){
-			url = 'http://localhost:5000/api/getmail'
+		if (env === 'development') {
+			url = 'http://localhost:5000/api/getmail';
 		} else {
-			url = '/api/getmail'
-		};
-		
+			url = '/api/getmail';
+		}
+
 		fetch(url)
 			.then(response => response.json())
 			.then(data => {
 				const reversedData = data.reverse();
 				this.setState({
-					messageData: reversedData
+					messageData: reversedData,
 				});
-			})
-		};
-	
+			});
+	}
+
+	handleClickOpen = () => {
+		this.setState({
+			open: true,
+		});
+	};
+
+	handleClose = () => {
+		this.setState({ open: false });
+	};
+
 	render() {
 		const { classes } = this.props;
 		return (
@@ -76,7 +89,7 @@ class InboxList extends React.Component {
 						{this.state.messageData.map(message => {
 							return (
 								<React.Fragment>
-									<ListItem button>
+									<ListItem button onClick={this.handleClickOpen}>
 										<ListItemIcon>
 											<UnreadIcon className={classes.icon} />
 											<ListItemText primary={message.date} secondary={message.time} />
@@ -92,6 +105,9 @@ class InboxList extends React.Component {
 						</Fab>
 					</List>
 				</Paper>
+				<Dialog onClose={this.handleClose} open={this.state.open} fullWidth maxWidth="xl" >
+					<MessageMain />
+				</Dialog>
 			</div>
 		);
 	}

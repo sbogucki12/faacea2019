@@ -23,9 +23,9 @@ class NewMessageMain extends React.Component {
 			to: '',
 			cc: '',
 			bcc: '',
-			date: 'Jan. 13...',
-			time: '06:30 p.m.',
-			email: 'devbogoodski@me.com',
+			date: 'Jan. 15...',
+			time: '10:59 p.m.',
+			email: 'steve@devbogoodski.com',
 			subject: '',
 			body: ''			
 		};

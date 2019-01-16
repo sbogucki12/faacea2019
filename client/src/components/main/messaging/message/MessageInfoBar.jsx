@@ -18,10 +18,10 @@ function MessageInfoBar(props) {
 		<div className={classes.root}>
 			<Paper className={classes.root} elevation={1}>
 				<Typography variant="h6" gutterBottom>
-					{`FROM@FROM.COM`}
+					{`steve@devbogoodski.com`}
 				</Typography>
 				<Typography variant="overline" gutterBottom>
-					{`TIME Date`}
+					{`10:59 p.m. Jan. 15, 2019`}
 				</Typography>
 			</Paper>
 		</div>

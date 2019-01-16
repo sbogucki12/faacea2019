@@ -1,4 +1,4 @@
-![Messaging Example](https://media.giphy.com/media/4SY6ihyFJwZ73NeWim/giphy.gif)
+![Messaging Example](https://media.giphy.com/media/8vzrnceeRF5EF2bB7S/giphy.gif)
 
 
 ![App Layout Diagram](https://i.imgur.com/pWYDEEm.jpg "App Layout Diagram")

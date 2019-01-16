@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, withTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Paper from '@material-ui/core/Paper';
 import ReplyIcon from '@material-ui/icons/ReplyTwoTone';
+import DeleteIcon from '@material-ui/icons/DeleteTwoTone';
+import ReplyAllIcon from '@material-ui/icons/ReplyAllTwoTone';
+import ForwardIcon from '@material-ui/icons/ForwardTwoTone';
 import Fab from '@material-ui/core/Fab';
-import MenuIcon from '@material-ui/icons/Menu';
-import AddIcon from '@material-ui/icons/Add';
-import SearchIcon from '@material-ui/icons/Search';
-import MoreIcon from '@material-ui/icons/MoreVert';
+import blueGrey from '@material-ui/core/colors/blueGrey';
 
 const styles = theme => ({
 	root: {
@@ -23,48 +21,28 @@ const styles = theme => ({
 		bottom: 0,
 	},
 	toolbar: {
-		// alignItems: 'center',
-		justifyContent: 'space-between',
+		display: 'flex',
+		justifyContent: 'flex-end',
 	},
 	fabButton: {
-		position: 'absolute',
 		top: -30,
-		margin: '0 auto',
-		zIndex: 1,
-		left: '80vw',
-		// right: '10%vw',
+		margin: 2,
 	},
-	fabButton2: {
-		position: 'absolute',
+	deleteButton: {
 		top: -30,
-		margin: '0 auto',
-		zIndex: 1,
-		left: '70vw',
-		// right: '20%vw',
+		margin: 2,
+		backgroundColor: '#dd2c00',
+		'&:hover': {
+			backgroundColor: '#ff7961',
+		},
 	},
-	fabButton3: {
-		position: 'absolute',
+	forwardButton: {
 		top: -30,
-		margin: '0 auto',
-		zIndex: 1,
-		left: '60vw',
-		// right: '20%vw',
-	},
-	fabButton4: {
-		position: 'absolute',
-		top: -30,
-		margin: '0 auto',
-		zIndex: 1,
-		left: '50vw',
-		// right: '20%vw',
-	},
-	fabButton5: {
-		position: 'absolute',
-		top: -30,
-		margin: '0 auto',
-		zIndex: 1,
-		left: '40vw',
-		// right: '20%vw',
+        margin: 2,
+		backgroundColor: '#b0bec5',
+		'&:hover': {
+			backgroundColor: '#eceff1',
+		},
 	},
 });
 
@@ -77,23 +55,18 @@ function MessageFooter(props) {
 					{/* <IconButton color="inherit" aria-label="Open drawer">
 							<MenuIcon />
                         </IconButton> */}
-					<div className={classes.root} container>
-						<Fab color="secondary" aria-label="Reply" className={classes.fabButton}>
-							<ReplyIcon />
-						</Fab>
-						<Fab color="secondary" aria-label="Reply" className={classes.fabButton2}>
-							<ReplyIcon />
-						</Fab>
-						<Fab color="secondary" aria-label="Reply" className={classes.fabButton3}>
-							<ReplyIcon />
-						</Fab>
-						<Fab color="secondary" aria-label="Reply" className={classes.fabButton4}>
-							<ReplyIcon />
-						</Fab>
-						<Fab color="secondary" aria-label="Reply" className={classes.fabButton5}>
-							<ReplyIcon />
-						</Fab>
-					</div>
+					<Fab aria-label="Reply" className={classes.deleteButton}>
+						<DeleteIcon />
+					</Fab>
+					<Fab color="secondary" aria-label="Reply" className={classes.forwardButton}>
+						<ForwardIcon />
+					</Fab>
+					<Fab color="secondary" aria-label="Reply" className={classes.fabButton}>
+						<ReplyAllIcon />
+					</Fab>
+					<Fab color="primary" aria-label="Reply" className={classes.fabButton}>
+						<ReplyIcon />
+					</Fab>
 				</Toolbar>
 			</AppBar>
 		</div>

@@ -17,8 +17,8 @@ function MessageSubject(props) {
 	return (
 		<div className={classes.root}>
 			<Paper className={classes.root} elevation={1}>
-				<Typography component="h2" variant="h1" gutterBottom>
-					{`Subject`}
+				<Typography variant="h3" gutterBottom>
+					{`Still at it :) `}
 				</Typography>
 			</Paper>
 		</div>
