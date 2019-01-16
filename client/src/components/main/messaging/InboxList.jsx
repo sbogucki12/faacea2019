@@ -49,7 +49,15 @@ class InboxList extends React.Component {
 	}
 
 	componentWillMount() {
-		fetch('http://localhost:5000/api/getmail')
+		let url; 
+		const env = process.env.NODE_ENV;
+		if(env === 'development'){
+			url = 'http://localhost:5000/api/getmail'
+		} else {
+			url = '/api/getmail'
+		};
+		
+		fetch(url)
 			.then(response => response.json())
 			.then(data => {
 				const reversedData = data.reverse();
