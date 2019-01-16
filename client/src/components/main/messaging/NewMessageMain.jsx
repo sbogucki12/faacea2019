@@ -23,9 +23,9 @@ class NewMessageMain extends React.Component {
 			to: '',
 			cc: '',
 			bcc: '',
-			date: 'Jan. 13...',
-			time: '06:30 p.m.',
-			email: 'devbogoodski@me.com',
+			date: 'Jan. 15...',
+			time: '10:59 p.m.',
+			email: 'steve@devbogoodski.com',
 			subject: '',
 			body: ''			
 		};
@@ -41,10 +41,16 @@ class NewMessageMain extends React.Component {
 		  });
 	}
 	onHandleSubmit = () => {
-		const url = 'http://localhost:5000/api/sendmessage';
+		let url; 
+		const env = process.env.NODE_ENV; 
+		if(env === 'development'){
+			url = 'http://localhost:5000/api/sendmessage';
+		} else {
+			url = '/api/sendmessage';
+		}
+		
 		const data = this.state;
-		console.log(data);
-
+		
 		fetch(url, {
 			method: 'POST', // or 'PUT'
 			body: JSON.stringify(data), // data can be `string` or {object}!
