@@ -11,6 +11,8 @@ mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 
 const app = express();
 
+require('./routes/messageRoutes')(app);
+
 app.use(bodyParser.json());
 
 app.use(
@@ -25,6 +27,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/practiceRoutes')(app);
+
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));

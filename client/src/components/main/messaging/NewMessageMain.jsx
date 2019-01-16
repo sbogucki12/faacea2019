@@ -8,39 +8,75 @@ import NewMessageHeader from './NewMessageHeader';
 import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
-  root: {
-    ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
-  },
+	root: {
+		...theme.mixins.gutters(),
+		paddingTop: theme.spacing.unit * 2,
+		paddingBottom: theme.spacing.unit * 2,
+	},
 });
 
 class NewMessageMain extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {};
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			id: 1,
+			to: '',
+			cc: '',
+			bcc: '',
+			date: 'Jan. 13...',
+			time: '06:30 p.m.',
+			email: 'devbogoodski@me.com',
+			subject: '',
+			body: ''			
+		};
+	}
 
-  render(){
-    const { classes } = this.props;
+	onHandleChange = (event) => {
+		const target = event.target;
+    	const value = target.value
+		const name = target.name;
+		
+		this.setState({
+			[name]: value
+		  });
+	}
+	onHandleSubmit = () => {
+		const url = 'http://localhost:5000/api/sendmessage';
+		const data = this.state;
+		console.log(data);
 
-    return (
-      <div className={classes.root}>
-        <NewMessageLayout>
-          <Paper elevation={6}>
-          <NewMessageHeader /> 
-          <NewMessageBody />
-          <NewMessageFooter />
-          <br />
-          </Paper>
-        </NewMessageLayout>
-      </div>
-    );
-  }
+		fetch(url, {
+			method: 'POST', // or 'PUT'
+			body: JSON.stringify(data), // data can be `string` or {object}!
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
+			.then(res => res.json())
+			.then(response => console.log('Success:', JSON.stringify(response)))
+			.catch(error => console.error('Error:', error));
+	};
+
+	render() {
+		const { classes } = this.props;
+
+		return (
+			<div className={classes.root}>
+				<NewMessageLayout>
+					<Paper elevation={6}>
+						<NewMessageHeader onHandleChange={this.onHandleChange} />
+						<NewMessageBody onHandleChange={this.onHandleChange} />
+						<NewMessageFooter onHandleSubmit={this.onHandleSubmit} />
+						<br />
+					</Paper>
+				</NewMessageLayout>
+			</div>
+		);
+	}
 }
 
 NewMessageMain.propTypes = {
-  classes: PropTypes.object.isRequired,
+	classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(NewMessageMain);

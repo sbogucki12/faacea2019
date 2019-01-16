@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
 
 const styles = theme => ({
   root: {
@@ -25,8 +25,26 @@ function NewMessageBody(props) {
       <Paper className={classes.root} elevation={2}>
       <TextField
           className={classes.textField}
-          id="filled-full-width"
+          id="subject"
+          label="Subject"
+          style={{ margin: 8 }}
+          placeholder="Subject"
+          name="subject"
+          // helperText="Enter Message Here"
+          fullWidth
+          margin="normal"
+          variant="filled"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          // value={props.subject}
+          onChange={props.onHandleChange}
+        />
+      <TextField
+          className={classes.textField}
+          id="body"
           label="Body"
+          name="body"
           style={{ margin: 8 }}
           placeholder="Enter Message Here"
           // helperText="Enter Message Here"
@@ -38,6 +56,7 @@ function NewMessageBody(props) {
           InputLabelProps={{
             shrink: true,
           }}
+          onChange={props.onHandleChange}
         />
       </Paper>
     </div>

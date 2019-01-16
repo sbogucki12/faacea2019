@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -40,12 +39,12 @@ function NewMessageHeader(props) {
         <Paper className={classes.paperRoot} elevation={2}>
         <Grid container spacing={8}>            
             <Grid item md={2}>
-                <Button variant="contained" className={classes.button}>
+                <Button variant="contained" className={classes.button} >
                     {`To:`}
                 </Button>
             </Grid>
             <Grid item md={9}>
-                <TextField variant="outlined" className={classes.textField} />
+                <TextField variant="outlined" className={classes.textField} name="to" onChange={props.onHandleChange} />
             </Grid>
             <Grid item md={1} />
             <Grid item md={2}>
@@ -54,7 +53,7 @@ function NewMessageHeader(props) {
                 </Button>
             </Grid>
             <Grid item md={9}>
-                <TextField variant="outlined" className={classes.textField} />
+                <TextField variant="outlined" className={classes.textField} name="cc" onChange={props.onHandleChange} />
             </Grid>
             <Grid item md={1} />
             <Grid item md={2}>
@@ -63,7 +62,7 @@ function NewMessageHeader(props) {
                 </Button>
             </Grid>
             <Grid item md={9}>
-                <TextField variant="outlined" className={classes.textField} />
+                <TextField variant="outlined" className={classes.textField}  name="bcc" onChange={props.onHandleChange} />
             </Grid>
             <Grid item md={1} />
         </Grid>
