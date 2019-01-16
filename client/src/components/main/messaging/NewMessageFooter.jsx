@@ -10,7 +10,8 @@ const styles = theme => ({
 		...theme.mixins.gutters(),
 		paddingTop: theme.spacing.unit * 2,
 		paddingBottom: theme.spacing.unit * 2,
-		flexGrow: 1,
+		display: 'flex',
+		justifyContent: 'flex-end',
 	},
 	button: {
 		margin: theme.spacing.unit,
@@ -21,30 +22,22 @@ const styles = theme => ({
 function NewMessageFooter(props) {
 	const { classes } = props;
 
-
 	return (
-		<div className={classes.root}>
+		<div>
 			<Paper className={classes.root} elevation={2}>
-				<Grid container spacing={0}>
-					<Grid item xs={0} md={5} lg={8} />
-					<Grid item xs={12} md={3} lg={2}>
-						<Button variant="outlined" className={classes.button}>
-							{`Attachment`}
-						</Button>
-					</Grid>
-					<Grid item xs={8} md={2} lg={1}>
-						<Button variant="contained" className={classes.button}>
-							{`Save`}
-						</Button>
-					</Grid>
-					<Grid item xs={4} md={2} lg={1}>
-						<form type="submit" onSubmit={props.onHandleSubmit}>
-						<Button variant="contained" color="primary" type="submit" className={classes.button}>
-							{`Send`}
-						</Button>
-						</form>
-					</Grid>
-				</Grid>
+				<Button variant="outlined" className={classes.button}>
+					{`Attachment`}
+				</Button>
+
+				<Button variant="contained" className={classes.button}>
+					{`Save`}
+				</Button>
+
+				<form type="submit" onSubmit={props.onHandleSubmit}>
+					<Button variant="contained" color="primary" type="submit" className={classes.button}>
+						{`Send`}
+					</Button>
+				</form>
 			</Paper>
 		</div>
 	);
