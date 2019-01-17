@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, withTheme } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import ReplyIcon from '@material-ui/icons/ReplyTwoTone';
@@ -8,7 +8,6 @@ import DeleteIcon from '@material-ui/icons/DeleteTwoTone';
 import ReplyAllIcon from '@material-ui/icons/ReplyAllTwoTone';
 import ForwardIcon from '@material-ui/icons/ForwardTwoTone';
 import Fab from '@material-ui/core/Fab';
-import blueGrey from '@material-ui/core/colors/blueGrey';
 
 const styles = theme => ({
 	root: {

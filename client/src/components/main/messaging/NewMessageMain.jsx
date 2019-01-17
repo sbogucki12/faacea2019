@@ -35,9 +35,45 @@ class NewMessageMain extends React.Component {
 		const target = event.target;
     	const value = target.value
 		const name = target.name;
-		
+		let d = new Date();		
+		const months = [ "Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."]
+		let mm = months[d.getMonth()];
+		let dd = d.getDate();
+		let hh = d.getHours();
+		const convertHour = (hours) => {
+			if(hours > 12){
+				hours = hours - 12;
+				return hours
+			}
+
+			return hours; 
+		}
+		const convertedHours = convertHour(hh);		
+		let min = d.getMinutes();
+
+		const isAm = (time) => {
+			return (time > 12 ? "p.m." : "a.m.");
+		}
+
+		let amPm = isAm(hh);
+
+		const toPrefixZero = (time) => {
+			if(time < 10){
+				time = `0${time}`;
+				return time;
+			};
+			return time;
+		};
+
+		const realHours = toPrefixZero(convertedHours);
+		const realDay = toPrefixZero(dd);
+
+		const date = `${mm} ${realDay}`;
+		const time = `${realHours}:${min} ${amPm}`;
 		this.setState({
-			[name]: value
+			[name]: value, 
+			date: date, 
+			time: time
 		  });
 	}
 	onHandleSubmit = () => {

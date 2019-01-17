@@ -36,6 +36,9 @@ const styles = theme => ({
 		left: 'auto',
 		position: 'fixed',
 	},
+	text: {
+
+	}
 });
 
 // function ListItemLink(props) {
@@ -94,7 +97,7 @@ class InboxList extends React.Component {
 											<UnreadIcon className={classes.icon} />
 											<ListItemText primary={message.date} secondary={message.time} />
 										</ListItemIcon>
-										<ListItemText primary={message.email} secondary={message.subject} />
+										<ListItemText primary={message.email} secondary={message.subject} className={classes.text} />
 									</ListItem>
 									<Divider />
 								</React.Fragment>
