@@ -19,7 +19,7 @@ class NewMessageMain extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			id: 1,
+			id: 7,
 			to: '',
 			cc: '',
 			bcc: '',
@@ -70,11 +70,12 @@ class NewMessageMain extends React.Component {
 
 		const date = `${mm} ${realDay}`;
 		const time = `${realHours}:${min} ${amPm}`;
-		this.setState({
+		this.setState(prevState => ({
 			[name]: value, 
 			date: date, 
-			time: time
-		  });
+			time: time, 
+			id: prevState.id++
+		  }));
 	}
 	onHandleSubmit = () => {
 		let url; 

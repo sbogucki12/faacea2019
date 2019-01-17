@@ -43,4 +43,11 @@ module.exports = app => {
         const messageData = require('../dummyData/messageDummyData');
         res.send(messageData);
     })
+
+    app.get('/api/getmail/:id', (req, res) => {
+        const messageData = require('../dummyData/messageDummyData');
+        const id = req.params.id; 
+        const message = messageData[id];
+        res.send(message)
+    })
 }

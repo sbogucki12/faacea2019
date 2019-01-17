@@ -10,7 +10,7 @@ const styles = theme => ({
 		...theme.mixins.gutters(),
 		paddingTop: theme.spacing.unit * 2,
 		paddingBottom: theme.spacing.unit * 2,
-	}
+	},
 });
 
 class InboxMain extends React.Component {
@@ -18,9 +18,6 @@ class InboxMain extends React.Component {
 		super(props);
 		this.state = {};
 	}
-
-
-	
 
 	render() {
 		const { classes } = this.props;
@@ -32,7 +29,7 @@ class InboxMain extends React.Component {
 						<InboxList onNewMessage={this.props.onNewMessage} />
 						<br />
 					</Paper>
-				</InboxLayout>				
+				</InboxLayout>
 			</div>
 		);
 	}

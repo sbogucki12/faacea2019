@@ -1,6 +1,6 @@
 const messageDummyData = [
     {
-        id: 1, 
+        id: 6, 
         date: "Jan. 11", 
         time: "07:41 p.m.",
         email: "email@email.com",
@@ -8,7 +8,7 @@ const messageDummyData = [
         body: ""
     },
     {
-        id: 2, 
+        id: 5, 
         date: "Jan. 11", 
         time: "04:19 p.m.",
         email: "joe@fly.aero",
@@ -16,7 +16,7 @@ const messageDummyData = [
         body: ""
     },
     {
-        id: 3, 
+        id: 4, 
         date: "Jan. 09", 
         time: "11:02 a.m.",
         email: "bsc@corporate.net",
@@ -24,7 +24,7 @@ const messageDummyData = [
         body: ""
     },
     {
-        id: 5, 
+        id: 3, 
         date: "Jan. 07", 
         time: "04:02 p.m.",
         email: "sjones@corporate.net",
@@ -32,7 +32,7 @@ const messageDummyData = [
         body: ""
     },
     {
-        id: 6, 
+        id: 2, 
         date: "Jan. 02", 
         time: "09:04 a.m.",
         email: "rmurray@corporate.net",
@@ -40,7 +40,7 @@ const messageDummyData = [
         body: ""
     },
     {
-        id: 7, 
+        id: 1, 
         date: "Dec. 28", 
         time: "10:15 a.m.",
         email: "sjones@corporate.net",
@@ -48,7 +48,7 @@ const messageDummyData = [
         body: ""
     },
     {
-        id: 8, 
+        id: 0, 
         date: "Dec. 27", 
         time: "12:45 p.m.",
         email: "admin@corporate.net",

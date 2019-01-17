@@ -36,9 +36,7 @@ const styles = theme => ({
 		left: 'auto',
 		position: 'fixed',
 	},
-	text: {
-
-	}
+	text: {},
 });
 
 // function ListItemLink(props) {
@@ -66,7 +64,22 @@ class InboxList extends React.Component {
 		fetch(url)
 			.then(response => response.json())
 			.then(data => {
-				const reversedData = data.reverse();
+				// const reversedData = data.reverse();
+				
+				const sortData = array => {
+					for (var i = 0; i < array.length; i++) {
+						const boundary = array.length - 1;
+						let counter = 0;
+						if (array[counter].id < array[counter + 1].id) {
+							if (counter < boundary) {
+								array[counter] = array[counter + 1];								
+							}
+						}
+						counter++;						
+					}
+					return array;
+				};
+				const reversedData = sortData(data);
 				this.setState({
 					messageData: reversedData,
 				});
@@ -97,7 +110,11 @@ class InboxList extends React.Component {
 											<UnreadIcon className={classes.icon} />
 											<ListItemText primary={message.date} secondary={message.time} />
 										</ListItemIcon>
-										<ListItemText primary={message.email} secondary={message.subject} className={classes.text} />
+										<ListItemText
+											primary={message.email}
+											secondary={message.subject}
+											className={classes.text}
+										/>
 									</ListItem>
 									<Divider />
 								</React.Fragment>
@@ -108,7 +125,7 @@ class InboxList extends React.Component {
 						</Fab>
 					</List>
 				</Paper>
-				<Dialog onClose={this.handleClose} open={this.state.open} fullWidth maxWidth="xl" >
+				<Dialog onClose={this.handleClose} open={this.state.open} fullWidth maxWidth="xl">
 					<MessageMain />
 				</Dialog>
 			</div>
