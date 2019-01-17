@@ -1,6 +1,9 @@
 ![Messaging Example](https://media.giphy.com/media/8vzrnceeRF5EF2bB7S/giphy.gif)
 
 
+![Messaging Example 2](http://g.recordit.co/wpncHD0Lf3.gif)
+
+
 ![App Layout Diagram](https://i.imgur.com/pWYDEEm.jpg "App Layout Diagram")
 
 # My Local Version Control
